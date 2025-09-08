@@ -1,5 +1,4 @@
 var express = require("express");
-var path = require("path");
 var router = express.Router();
 
 /* GET vejrdata for en by route */
@@ -11,7 +10,6 @@ router.get("/weather", async (req, res) => {
     const response = await fetch(url);
     if (!response.ok) throw new Error("Kunne ikke hente vejrdata");
     const data = await response.json();
-    console.log(data);
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: "Kunne ikke hente vejrdata" });
@@ -25,18 +23,9 @@ router.get("/weathers", async (req, res) => {
     : ["Copenhagen", "Aarhus", "Odense"];
   const urls = cities.map((city) => `https://wttr.in/${city}?format=j1`);
 
-  const start = new Date();
-  console.log("Server start:", start.toISOString());
-
   try {
     const fetches = urls.map((url) => fetch(url).then((r) => r.json()));
     const results = await Promise.all(fetches);
-
-    const end = new Date();
-    console.log("Server slut:", end.toISOString());
-    console.log("Server tid (ms):", end - start);
-    console.log(results);
-
     res.json(
       cities.map((city, i) => ({
         city,
