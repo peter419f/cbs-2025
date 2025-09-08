@@ -15,7 +15,7 @@ cd 2
 
 ls
 
-cd vejr-app
+cd 1-vejr-app
 
 pwd
 
