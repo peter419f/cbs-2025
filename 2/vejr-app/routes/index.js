@@ -3,8 +3,8 @@ var path = require('path');
 var router = express.Router();
 
 /* GET index route */
-router.get('/', function(req, res, next) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 /* GET vejrdata for en by route */
