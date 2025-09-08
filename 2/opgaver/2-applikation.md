@@ -3,6 +3,10 @@
 Vi starter med at lave git clone på et repository med Vejr appen fra sidste uge.
 
 ```
+mkdir mikkel 
+
+cd mikkel
+
 git clone https://github.com/mwndigi/cbs-2025.git
 
 ls
