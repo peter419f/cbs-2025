@@ -9,7 +9,7 @@ Opret et projekt med express-generator på din computer, push og commit til et r
 2. I Visual Studio Code åbner du Terminalen for mappen og opretter et projekt med express-generator (se Øvelse 1)
 
 ```bash
-express 2-min-app --git --no-view
+express min-app --git --no-view
 ```
 
 3. Lav commit og push af din app til GitHub
@@ -19,7 +19,7 @@ express 2-min-app --git --no-view
 5. Brug cd-kommandoen ind i mappen, for eksempel:
 
 ```
-cd cbs-2025/2/2-min-app
+cd cbs-2025/min-app
 ```
 
 6. Installer afhængigheder
