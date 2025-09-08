@@ -30,7 +30,7 @@
     const start = new Date();
     console.log('Client start:', start.toISOString());
 
-    const res = await fetch(`/api/weather?city=${encodeURIComponent(city)}`);
+    const res = await fetch(`/vejr/api/weather?city=${encodeURIComponent(city)}`);
     const data = await res.json();
 
     const end = new Date();
@@ -51,7 +51,7 @@
     const start = new Date();
     console.log('Client start:', start.toISOString());
 
-    const res = await fetch(`/api/weathers?cities=${encodeURIComponent(cities)}`);
+    const res = await fetch(`/vejr/api/weathers?cities=${encodeURIComponent(cities)}`);
     const data = await res.json();
 
     const end = new Date();
