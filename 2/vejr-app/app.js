@@ -12,9 +12,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/vejr/public', express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/api', apiRouter);
+app.use('/vejr', indexRouter);
+app.use('/vejr/api', apiRouter);
 
 module.exports = app;

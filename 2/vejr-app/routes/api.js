@@ -3,7 +3,7 @@ var path = require('path');
 var router = express.Router();
 
 /* GET vejrdata for en by route */
-router.get('/api/weather', async (req, res) => {
+router.get('/weather', async (req, res) => {
     const city = req.query.city || 'Copenhagen';
     const url = `https://wttr.in/${city}?format=j1`;
 
@@ -19,7 +19,7 @@ router.get('/api/weather', async (req, res) => {
 });
 
 /* GET vejrdata for flere byer route */
-router.get('/api/weathers', async (req, res) => {
+router.get('/weathers', async (req, res) => {
     const cities = req.query.cities ? req.query.cities.split(',') : ['Copenhagen', 'Aarhus', 'Odense'];
     const urls = cities.map(city => `https://wttr.in/${city}?format=j1`);
 
