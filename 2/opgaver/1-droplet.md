@@ -59,9 +59,9 @@ pm2 save
 
 [Link til dokumentation](https://pm2.keymetrics.io/docs/usage/process-management/)
 
-# NGINX
+# Nginx
 
-NGINX (udtales ENGINE-X) er en open-source webserver med en reverse proxy og load balancer.
+Nginx (udtales ENGINE-X) er en open-source webserver med en reverse proxy og load balancer.
 
 ```
 sudo apt update
@@ -80,7 +80,7 @@ sudo ufw app list
 
 sudo ufw allow 'Nginx HTTP'
 
-ufw allow OpenSSH
+sudo ufw allow ssh
 
 sudo ufw enable
 
@@ -174,3 +174,44 @@ cat – vis indholdet af en fil
 history – vis seneste kommandoer
 
 [Link til Linux kommandoer](https://www.geeksforgeeks.org/linux-unix/linux-commands-cheat-sheet/)
+
+# Fuld Nginx konfiguration
+
+Kan tilgås på Droplet via:
+
+```
+sudo nano /etc/nginx/sites-available/default
+```
+
+Lav ændringer og tryk CTRL+X og Y for Yes og tryk ENTER for at gemme.
+
+```
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+		proxy_pass http://localhost:3000;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection upgrade;
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	}
+
+	location /vejr {	
+		proxy_pass http://localhost:4000;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection upgrade;
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	}
+}
+```
