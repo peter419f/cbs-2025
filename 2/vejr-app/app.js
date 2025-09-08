@@ -13,6 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/vejr/public', express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/vejr', indexRouter);
 
 module.exports = app;
