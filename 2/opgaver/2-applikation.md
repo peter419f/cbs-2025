@@ -2,6 +2,8 @@
 
 Vi starter med at lave git clone på et repository med Vejr appen fra sidste uge.
 
+Projektet er tilgængeligt på GitHub: https://github.com/mwndigi/cbs-2025
+
 ```
 mkdir mikkel 
 
